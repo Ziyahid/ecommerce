@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/76b652526b.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+
+    <div class="header">
+        <img src="img/logo.png" alt="">
+        <i class="fa-solid fa-bars" onclick="openNav()"></i>
+        <div>
+        
+        <ul id="navbar">
+           <li><i class="fa-solid fa-xmark" onclick="closeNav()"></i></li> 
+            
+           <li><a href="index.html" >Home</a></li> 
+            <li><a href="shop.html" >Shop</a></li>
+           <li><a href="blog.html" >Blog</a></li> 
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
+
+        </ul>
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+    </div>
+    </div>
+        
+    
+    <div class="about-header">
+
+        <div class="about-header-content">
+
+
+        <h2>#KnowUs</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur.</p>
+
+    </div>
+    </div>
+
+    <div class="cart">
+        <table width="100%" id="cart-table">
+
+        <thead>
+
+            <tr>
+                
+                <td>PRODUCT</td>
+                <td>PRODUCT NAME</td>
+                <td>PRICE</td>
+                <td>QUANTITY</td>
+                <td>SUBTOTAL</td>
+                <td>REMOVE</td>
+            </tr>
+
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td id="remove"><i class="fa-regular fa-circle-xmark"></i></td>
+                <td><img src="img/Products/f1.jpg" alt=""></td>
+                <td>Cartoon Astronaut Shirt</td>
+                <td>$118.19</td>
+                <td><input type="number" value="1"></td>
+                <td>$118.19</td>
+            </tr>
+
+            <tr>
+
+                <td><i class="fa-regular fa-circle-xmark"></i></td>
+                <td><img src="img/Products/f2.jpg" alt=""></td>
+                <td>Cartoon Astronaut Shirt</td>
+                <td>$118.19</td>
+                <td><input type="number" value="1"></td>
+                <td>$118.19</td>
+            </tr>
+
+            <tr>
+
+                <td><i class="fa-regular fa-circle-xmark"></i></td>
+                <td><img src="img/Products/f3.jpg" alt=""></td>
+                <td>Cartoon Astronaut Shirt</td>
+                <td>$118.19</td>
+                <td><input type="number" value="1"></td>
+                <td>$118.19</td>
+            </tr>
+
+
+
+        </tbody>
+    </table>
+       
+
+
+    </div>
+
+    <div class="cart-add">
+
+        <div class="coupon">
+            <h3>Apply Coupon</h3>
+            <div>
+                <input type="text" placeholder="Enter your coupon">
+                <button>Apply</button>
+            </div>
+        
+        </div>
+
+        <div class="cart-total">
+
+            <h3>Cart Totals</h3>
+            <table>
+
+                <tbody>
+                    <tr>
+                        <td>Cart Subtotal</td>
+                        <td id="subtotal">$335</td>
+                    </tr>
+                    <tr>
+                        <td>Shipping</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong >Total</strong></td>
+                        <td><strong id="total">$335</strong></td>
+                    </tr>
+                    
+                </tbody>
+                
+
+
+            </table>
+            <button>Proceed to checkout</button>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer">
+        <div class="footer-contact">
+            <img src="img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><span>Address:</span>562Wellington Road Street 32,San Francisco</p>
+            <p><span>Phone:</span>+01 2222 365/(+91) 01 2345 6789</p>
+            <p><span>Hours:</span>10.00 - 18.00.Mon-Sat</p>
+
+            
+            <div class="footer-logos">
+                <h4>Follow Us</h4>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-pinterest"></i>
+
+            </div>
+        </div>
+
+        <div class="footer-about footer-list">
+            <h4>About Us</h4>
+            <ul>
+                <li>About Us</li>
+                <li>Delivery Information</li>
+                <li>Privacy Policy</li>
+                <li>Terms & Conditions</li>
+                <li>Contact US</li>
+            </ul>
+        </div>
+
+        <div class="footer-account footer-list">
+            <h4>My Account</h4>
+            <ul>
+                
+                <li>Sign In</li>
+                <li>View Cart</li>
+                <li>My wishlink</li>
+                <li>Track Me</li>
+                <li>Help</li>
+            </ul>
+        </div>
+
+        <div class="footer-app">
+            <h4>Install App</h4>
+            <p>From App store or Google Play</p>
+            <div class="install-images">
+                <img src="img/Pay/app (1).jpg" alt="">
+                <img src="img/Pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="img/Pay/pay.png" alt="">
+
+        </div>
+
+
+    </div>
+    
+
+
+
+    <script>
+        const cartTableBody = document.querySelector('#cart-table tbody');
+       
+    
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+        function renderCart() {
+            cartTableBody.innerHTML = '';
+    
+            cart.forEach((product, index) => {
+                const row = document.createElement('tr');
+    
+                row.innerHTML = `
+                    <td><img src="${product.image}" alt="Product Image" width="50"></td>
+                    <td>${product.name}</td>
+                    <td>$${product.price}</td>
+                    <td><input type="number" min="1" value="${product.quantity}" class="quantity-input" data-index="${index}"></td>
+                    <td>$${(product.price * product.quantity).toFixed(2)}</td>
+                    <td><button class="remove-button" data-index="${index}">Remove</button></td>
+                `;
+    
+                cartTableBody.appendChild(row);
+    
+            });
+        }
+
+
+    
+        
+        cartTableBody.addEventListener('input', (e) => {
+            if (e.target.classList.contains('quantity-input')) {
+                const index = e.target.dataset.index;
+                const newQuantity = parseInt(e.target.value, 10);
+    
+                if (newQuantity > 0) {
+                    cart[index].quantity = newQuantity;
+                    localStorage.setItem('cart', JSON.stringify(cart)); 
+                    renderCart(); 
+                }
+            }
+        });
+    
+        
+        cartTableBody.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-button')) {
+                const index = e.target.dataset.index;
+    
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart)); 
+                renderCart(); // Re-render cart
+            }
+        });
+    
+        // Initial render
+        renderCart();
+
+        const navBar = document.getElementById("navbar");
+        const bar = document.getElementsByClassName(".-fa-bars");
+        const cartButtons = document.querySelectorAll(".cart-btn");
+
+        function openNav(){
+
+        navBar.style.right = 0;
+
+        }
+        function closeNav(){
+        navBar.style.right = -3000 + "px";
+        }
+    </script>
+</body>
+</html>
